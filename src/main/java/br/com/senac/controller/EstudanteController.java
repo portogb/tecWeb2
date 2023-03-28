@@ -38,14 +38,14 @@ public class EstudanteController {
 		return estudanteService.cadastrarEstudante(estudante);
 	}
 	
-	@PutMapping
-	public ResponseEntity<Estudante> atualizarEstudante(@RequestBody Estudante estudante){
-		return estudanteService.atualizarEstudante(estudante);
+	@PutMapping("/{id}")
+	public ResponseEntity<Estudante> atualizarEstudante(@PathVariable Long id, @RequestBody Estudante estudante){
+		return estudanteService.atualizarEstudante(id, estudante);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deletarEstudante(@PathVariable Long id){
-		return estudanteService.removerUsuario(id);
+	public ResponseEntity<String> removerEstudante(@PathVariable Long id){
+		return estudanteService.removerEstudante(id);
 	}
-	
+
 }
